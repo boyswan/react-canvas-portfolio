@@ -1,0 +1,30 @@
+{
+  "name": "reactcanvas",
+  "version": "0.0.0",
+  "description": " ",
+  "repository": " ",
+  "author": "Jack Boyce",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --progress --colors",
+    "build": "webpack --progress --colors"
+  },
+  "devDependencies": {
+    "babel-core": "^4.6.1",
+    "babel-loader": "^4.0.0",
+    "css-loader": "^0.9.1",
+    "hammerjs": "^2.0.4",
+    "react": "^0.13.0-beta.1",
+    "react-canvas": "0.0.1",
+    "react-hot-loader": "^1.1.5",
+    "sass-loader": "^0.4.0",
+    "style-loader": "^0.8.3",
+    "url-loader": "^0.5.5",
+    "velocity-animate": "^1.2.2",
+    "webpack": "^1.6.0",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "scroller": "git://github.com/mjohnston/scroller"
+  }
+}
