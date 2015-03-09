@@ -18,9 +18,47 @@ let App = React.createClass({
   getInitialState(){
     return{
       imageList: Data2,
-      menu: true
+      morePic: true
     }
   },
+
+  buttonClick(child){
+    console.log('tree')
+    // console.log(child.props.article.title)
+    if (!this.state.morePic){
+      Velocity(document.getElementById('gallery'),({ translateX: ['-80%', [90,10]] }), 600);
+      this.setState({morePic: true})
+    }  
+
+    if (this.state.morePic){
+      Velocity(document.getElementById('gallery'),({ translateX: ['0%', [90,10]] }), 600);
+      this.setState({morePic: false})
+    }
+
+  },
+
+  render(){
+    return(
+      <div className='background'>
+        <div className="click-fix" onClick={this.buttonClick}></div>
+        <Sidebar />
+        <div className="to-top">
+          <Gallery 
+            getNumberOfPages={this.getNumberOfPages}
+            pageHeight={this.getPageHeight}
+            getSize={this.getSize}
+            onClick={this.buttonClick}/>
+        </div>
+        <div className="mini-gallery">
+            <MiniGallery imageList={this.state.imageList} morePic={this.state.morePic}/>
+        </div>
+      </div>
+    )
+  },
+
+  ////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
+
 
   getNumberOfPages(){
     return Data.length;
@@ -29,40 +67,11 @@ let App = React.createClass({
   getPageHeight(){
     return document.getElementById('main').getBoundingClientRect().height;
   },
+
   getSize(){
     return document.getElementById('main').getBoundingClientRect();
   },
 
-  buttonClick(child){
-    // console.log(child.props.article.title)
-    if (!this.state.menu){
-      Velocity(document.getElementById('gallery'),({ translateX: ['-80%', [90,10]] }), 600);
-      this.setState({menu: true})
-    }  
-    if (this.state.menu){
-      Velocity(document.getElementById('gallery'),({ translateX: ['0%', [90,10]] }), 600);
-      this.setState({menu: false})
-    }
-
-  },
-
-  render(){
-    return(
-      <div className='background'>
-
-        <Sidebar />
-        <div className="to-top">
-          <Gallery 
-            getNumberOfPages={this.getNumberOfPages}
-            pageHeight={this.getPageHeight}
-            getSize={this.getSize}
-            onClick={this.buttonClick} />
-        </div>
-        <MiniGallery imageList={this.state.imageList}/>
-
-      </div>
-    )
-  }
 
 });
 

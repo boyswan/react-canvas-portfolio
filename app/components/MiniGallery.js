@@ -1,5 +1,7 @@
 
-import React    from 'react';
+import React    from 'react/addons';
+let cx = React.addons.classSet;
+
 import Velocity from 'velocity-animate/velocity';
 import Hammer   from 'hammerjs/hammer';
 
@@ -11,9 +13,16 @@ let MiniGalleryContainer = React.createClass({
 
   render(){
 
+    let fixedPosition = cx({
+      "mini--gallery__container": !this.props.morePic,
+      "mini--gallery__container freeze": this.props.morePic
+    });
+
     return(
-      <div className="mini--gallery__container">
-        <MiniGallery {...this.props} />
+      <div className="gallery-container">
+        <div className={fixedPosition}>
+          <MiniGallery {...this.props} />
+        </div>
       </div>
     )
   }
@@ -39,7 +48,7 @@ let SingleImage = React.createClass({
 
   render(){
     let style = {
-      'width': window.innerWidth*0.85+'px'
+      'width': window.innerWidth*0.8+'px'
     }
 
     return(

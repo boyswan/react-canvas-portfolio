@@ -1,10 +1,21 @@
 
 .mini--gallery__container{
-	position: fixed;
-	right: 0;
-transform: translateZ(100px)
+		display: none;
+		// position: fixed;
+
+	&.freeze{
+		display: inline;
+		position: default;
+	}
 }
 
 .mini--gallery__single{
 	display: flex;
+}
+
+.gallery-container{
+	position: absolute;
+	overflow: auto;
+	right: 0;
+
 }
