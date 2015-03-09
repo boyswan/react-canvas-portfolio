@@ -18,7 +18,7 @@ let App = React.createClass({
   getInitialState(){
     return{
       imageList: Data2,
-      morePic: true
+      morePic: null
     }
   },
 
@@ -49,9 +49,7 @@ let App = React.createClass({
             getSize={this.getSize}
             onClick={this.buttonClick}/>
         </div>
-        <div className="mini-gallery">
-            <MiniGallery imageList={this.state.imageList} morePic={this.state.morePic}/>
-        </div>
+        <MiniGallery imageList={this.state.imageList} morePic={this.state.morePic}/>
       </div>
     )
   },

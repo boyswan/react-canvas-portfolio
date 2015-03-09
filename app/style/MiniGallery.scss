@@ -1,11 +1,9 @@
 
 .mini--gallery__container{
-		display: none;
-		// position: fixed;
+		position: fixed;
 
 	&.freeze{
-		display: inline;
-		position: default;
+		position: initial;
 	}
 }
 

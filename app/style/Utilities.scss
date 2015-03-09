@@ -21,12 +21,9 @@ html, body {
 .click-fix{
   position: fixed;
   width: 20%;
-  margin-top: 80px;
+  margin-top: 60px;
   height: 100%;
+  background: red;
   opacity: 0;
   z-index: 9999999;
 }
-
-// .mini-gallery{
-//   overflow: scroll;
-// }
